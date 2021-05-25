@@ -1,0 +1,31 @@
+.site-nav {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+
+  &__item {
+    position: relative;
+    margin-right: 32px;
+    margin-bottom: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--dark);
+    border-radius: 2px;
+    border-bottom: 2px solid transparent;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      border-color: var(--primary);
+    }
+  }
+
+  &__item.active > &__link {
+    border-color: var(--primary);
+  }
+}
