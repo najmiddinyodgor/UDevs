@@ -19,13 +19,13 @@ const CardList: FC<Props> = ({cssClass, cards, left, right, Component}: Props) =
                 cards.map((card: ICard) => {
                     if (left || right) {
                         return (
-                            <div className={classes.join(" ")}>
-                                <Component {...card} />
+                            <div key={card.label} className={classes.join(" ")}>
+                                <Component  {...card} />
                             </div>
                         )
                     }
                     return (
-                        <Component {...card} />
+                        <Component key={card.label} {...card} />
                     )
                 })
             }

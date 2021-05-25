@@ -1,4 +1,5 @@
 import React, {FC} from "react"
+import classNames from "classnames";
 
 type Props = {
     label: string,
@@ -6,10 +7,11 @@ type Props = {
     clickHandler: Function
 }
 
-const FilterButton: FC<Props> = ({label, clickHandler, isActive}: Props) => {
+const FilterButton: FC<Props> = ({label, isActive, clickHandler}: Props) => {
     return (
-        <button className={["tools__btn", isActive ? "active" : ""].join(" ")} type={"button"} onClick={() => clickHandler()}>
-            <span>{label}</span>
+        <button className={classNames("tools__btn", {"active": isActive})} onClick={() => clickHandler()}>
+            <span/>
+            {label}
         </button>
     )
 }

@@ -1,20 +1,14 @@
 import React, {FC} from "react"
 import {ICard} from "../../type";
 import Card from "../card/Card";
-import {FilterContext} from "../../contexts/FilterContext";
+import classNames from "classnames";
 
-type Props = ICard & { id: number }
+type Props = ICard & { isActive: boolean }
 
-const FilterElem: FC<Props> = ({icon, label, id, cssClass}: Props) => {
+const FilterElem: FC<Props> = ({icon, label, isActive, cssClass}: Props) => {
     return (
-        <FilterContext.Consumer>
-            {
-                ({active}) => (
-                    <Card label={label} icon={icon}
-                          cssClass={["card--filter", cssClass, active === id ? "active" : ""].join(" ")}/>
-                )
-            }
-        </FilterContext.Consumer>
+        <Card label={label} icon={icon}
+              cssClass={classNames("card--filter", cssClass, {"active": isActive})}/>
     )
 }
 

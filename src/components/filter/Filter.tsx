@@ -1,11 +1,10 @@
-import React, {FC, useContext, useState} from "react"
+import React, {FC, useState} from "react"
 
 import swift from "./../../images/swift.svg";
 import kotlin from "./../../images/kotlin.svg";
 import flutter from "./../../images/flutter.svg";
 import {ICard} from "../../type";
 import FilterElem from "./FilterElem";
-import FilterContextProvider, {FilterContext} from "../../contexts/FilterContext";
 import FilterButton from "./FilterButton";
 
 interface IFilterElem {
@@ -64,38 +63,30 @@ const filterElems: IFilterElem[] = [
 ]
 
 const Filter: FC = () => {
-    const {active, onChange} = useContext(FilterContext)
+    const [activeElem, setActiveElem] = useState<number>(1)
 
     return (
-        <FilterContextProvider>
+        <div>
             <div>
-                <div>
-                    <FilterContext.Consumer>
-                        {
-                            ({active}) => {
-                                return filterElems.map((filterElem: IFilterElem) => {
-                                    return <FilterButton key={filterElem.id} label={filterElem.label}
-                                                         isActive={active === filterElem.id}
-                                                         clickHandler={() => onChange.call(FilterContext, filterElem.id)}/>
-                                })
-                            }
-                        }
-                    </FilterContext.Consumer>
-                </div>
-                <div className={"tools"}>
-                    <FilterContext.Consumer>
-                        {
-                            ({active}) => {
-                                return filterElems.map((filterElem: IFilterElem) => {
-                                    return filterElem.items.map((item: ICard) => <FilterElem {...item}
-                                                                                             id={filterElem.id}/>)
-                                })
-                            }
-                        }
-                    </FilterContext.Consumer>
-                </div>
+                {
+                    filterElems.map(({id, label}: IFilterElem) => {
+                        return <FilterButton key={id} label={label}
+                                             isActive={activeElem === id}
+                                             clickHandler={() => setActiveElem(id)}/>
+                    })
+                }
             </div>
-        </FilterContextProvider>
+            <div className={"tools"}>
+                {
+                    filterElems.map(({label, activeClass, items, id}: IFilterElem) => {
+                        return items.map((item: ICard) => <FilterElem
+                            key={item.label} {...item}
+                            cssClass={activeClass}
+                            isActive={activeElem === id}/>)
+                    })
+                }
+            </div>
+        </div>
     )
 }
 
