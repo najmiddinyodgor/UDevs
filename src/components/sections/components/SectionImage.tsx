@@ -11,15 +11,15 @@ const SectionImage: FC<Props> = ({path, hasPattern}: Props) => {
         return (
             <div className={"section__image section__image--bg"}>
                 <div>
-                    <img src={basePath + "pattern.png"}/>
+                    <img src={basePath + "pattern.png"} alt={"pattern"}/>
                 </div>
-                <img src={basePath + path}/>
+                <img src={basePath + path} alt={path}/>
             </div>
         )
     }
     return (
         <div className={"section__image"}>
-            <img src={basePath + path}/>
+            <img src={basePath + path} alt={path}/>
         </div>
     )
 }

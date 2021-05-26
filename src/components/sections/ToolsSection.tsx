@@ -1,6 +1,5 @@
 import {FC} from "react";
 import SectionWrapper from "./components/SectionWrapper";
-import SectionImage from "./components/SectionImage";
 import Filter from "../filter/Filter";
 
 const ToolsSection: FC = () => {

@@ -1,8 +1,6 @@
 import React, {FC} from "react"
 import Logo from "../../Logo";
 import SiteNav from "../SiteNav/SiteNav";
-import Button from "../../buttons/BlueButton";
-
 
 const PageNav: FC = () => {
     return (
