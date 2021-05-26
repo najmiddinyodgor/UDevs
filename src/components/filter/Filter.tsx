@@ -1,8 +1,8 @@
 import React, {FC, useState} from "react"
 
-import swift from "./../../images/swift.svg";
-import kotlin from "./../../images/kotlin.svg";
-import flutter from "./../../images/flutter.svg";
+import swift from "../../images/technologies/swift.svg";
+import kotlin from "../../images/technologies/kotlin.svg";
+import flutter from "../../images/technologies/flutter.svg";
 import {ICard} from "../../type";
 import FilterElem from "./FilterElem";
 import FilterButton from "./FilterButton";
@@ -65,6 +65,14 @@ const filterElems: IFilterElem[] = [
 const Filter: FC = () => {
     const [activeElem, setActiveElem] = useState<number>(1)
 
+    function changeActiveElem(id: number) {
+        if (id === activeElem) {
+            setActiveElem(0)
+        } else {
+            setActiveElem(id)
+        }
+    }
+
     return (
         <div>
             <div>
@@ -72,7 +80,7 @@ const Filter: FC = () => {
                     filterElems.map(({id, label}: IFilterElem) => {
                         return <FilterButton key={id} label={label}
                                              isActive={activeElem === id}
-                                             clickHandler={() => setActiveElem(id)}/>
+                                             clickHandler={() => changeActiveElem(id)}/>
                     })
                 }
             </div>
@@ -82,7 +90,7 @@ const Filter: FC = () => {
                         return items.map((item: ICard) => <FilterElem
                             key={item.label} {...item}
                             cssClass={activeClass}
-                            isActive={activeElem === id}/>)
+                            isActive={activeElem === 0 || activeElem === id}/>)
                     })
                 }
             </div>

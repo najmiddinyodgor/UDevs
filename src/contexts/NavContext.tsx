@@ -1,18 +1,20 @@
 import {createContext, FC, PropsWithChildren} from "react";
 import {ISection} from "../type";
 import {createSection} from "../hocks/hock";
-import ServiceSection from "../components/sections/ServiceSection";
+import DirectsSection from "../components/sections/DirectsSection";
 import TeamSection from "../components/sections/TeamSection";
 import MobileSection from "../components/sections/MobileSection";
 import ToolsSection from "../components/sections/ToolsSection";
+import ErpSection from "../components/sections/ErpSection";
+import DumpSection from "../components/sections/components/DumpSection";
 
 const sections: ISection[] = [
     {
         link: {
             title: "Направления",
-            path: "services",
+            path: "directs",
         },
-        component: createSection(ServiceSection, "services")
+        component: createSection(DirectsSection, "directs")
     },
     {
         link: {
@@ -24,9 +26,24 @@ const sections: ISection[] = [
     {
         link: {
             title: "Услуги",
-            path: "moobile"
+            path: "services",
+            dropdown: [
+                {
+                    link: {
+                        title: "Разработка мобильных приложений",
+                        path: "mobile-services"
+                    },
+                    component: createSection(MobileSection, "mobile-services")
+                },
+                {
+                    link: {
+                        title: "Разработка и внедрение ERP систем",
+                        path: "erp-services"
+                    },
+                    component: createSection(ErpSection, "erp-services")
+                }
+            ]
         },
-        component: createSection(MobileSection, "mobile")
     },
     {
         link: {

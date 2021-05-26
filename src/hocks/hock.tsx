@@ -1,6 +1,13 @@
-import {FC, ReactElement} from "react";
+import {FC, ReactElement, ReactNode} from "react";
 
-export function createSection(Component: FC, id: string): ReactElement {
+export function createSection(Component: FC, id: string, children?: ReactNode): ReactElement {
+    if(children) {
+        return (
+            <div id={id}>
+                {children}
+            </div>
+        )
+    }
     return (
         <div id={id}>
             <Component/>

@@ -10,7 +10,9 @@
   }
 
   &__link {
-    display: block;
+    display: flex;
+    align-items: center;
+
     padding: 10px 0;
     font-size: 14px;
     font-weight: 700;
@@ -23,9 +25,14 @@
     &:hover {
       border-color: var(--primary);
     }
+
+    img {
+      width: 13px;
+      height: 12px;
+    }
   }
 
-  &__item.active > &__link {
+  &__item.active  &__link {
     border-color: var(--primary);
   }
 }

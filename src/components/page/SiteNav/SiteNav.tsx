@@ -5,6 +5,7 @@ import NavLink from "./NavLink";
 import {ILink, ISection} from "../../../type";
 import {NavContext} from "../../../contexts/NavContext";
 import Button from "../../buttons/BlueButton";
+import Dropdown from "./Dropdown";
 
 const SiteNav: FC = () => {
     const {sections} = useContext(NavContext)
@@ -17,6 +18,13 @@ const SiteNav: FC = () => {
         <Scrollspy items={links.map((link: ILink) => link.path)} className={"site-nav"} currentClassName={"active"}>
             {
                 links.map((link: ILink, id: number) => {
+                    if (link.dropdown) {
+                        return (
+                            <li className={"site-nav__item"} key={link.path}>
+                                <Dropdown link={link}/>
+                            </li>
+                        )
+                    }
                     return (
                         <li className={"site-nav__item"} key={link.path}>
                             <NavLink link={link}/>

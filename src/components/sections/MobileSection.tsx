@@ -6,12 +6,12 @@ import CardList from "../lists/CardList";
 import MiniCard from "../card/MiniCard";
 import SectionImage from "./components/SectionImage";
 
-import android from "./../../images/android.svg";
-import apple from "./../../images/apple.svg";
+import android from "../../images/technologies/android.svg";
+import apple from "../../images/technologies/apple.svg";
 import cross from "./../../images/cross.svg";
-import swift from "./../../images/swift.svg";
-import kotlin from "./../../images/kotlin.svg";
-import flutter from "./../../images/flutter.svg";
+import swift from "../../images/technologies/swift.svg";
+import kotlin from "../../images/technologies/kotlin.svg";
+import flutter from "../../images/technologies/flutter.svg";
 import TransCard from "../card/TransCard";
 
 const cards: ICard[] = [
@@ -45,7 +45,7 @@ const techCards: ICard[] = [
     }
 ];
 
-const TeamSection: FC = () => {
+const MobileSection: FC = () => {
     return (
         <SectionWrapper cssClass={"section--with-bg"} title={"Мобильная разработка"}>
             <div className={"section__col"}>
@@ -68,4 +68,4 @@ const TeamSection: FC = () => {
     )
 }
 
-export default TeamSection
+export default MobileSection

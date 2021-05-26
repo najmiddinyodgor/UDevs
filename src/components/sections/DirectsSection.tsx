@@ -38,7 +38,7 @@ const cards: ICard[] = [
 
 ]
 
-const ServiceSection: FC = () => {
+const DirectsSection: FC = () => {
     return (
         <SectionWrapper title={"Наши услуги"}>
             <CardList cards={cards} Component={BigCard}/>
@@ -46,4 +46,4 @@ const ServiceSection: FC = () => {
     )
 }
 
-export default ServiceSection
+export default DirectsSection

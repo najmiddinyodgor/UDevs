@@ -3,4 +3,11 @@
   flex-wrap: wrap;
   align-content: stretch;
   align-items: stretch;
+
+
+  &--dark {
+    .card {
+      background-color: var(--bg-secondary);
+    }
+  }
 }

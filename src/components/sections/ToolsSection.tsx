@@ -3,7 +3,7 @@ import SectionWrapper from "./components/SectionWrapper";
 import SectionImage from "./components/SectionImage";
 import Filter from "../filter/Filter";
 
-const TeamSection: FC = () => {
+const ToolsSection: FC = () => {
     return (
         <SectionWrapper cssClass={"section--blue"} title={"Инструменты"} single>
             <Filter/>
@@ -11,4 +11,4 @@ const TeamSection: FC = () => {
     )
 }
 
-export default TeamSection
+export default ToolsSection

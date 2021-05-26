@@ -1,13 +1,14 @@
 import {ReactElement} from "react";
 
-export type ILink ={
+export type ILink = {
     title: string,
     path: string,
+    dropdown?: ISection[]
 }
 
 export type ISection = {
     link: ILink,
-    component: ReactElement
+    component?: ReactElement
 }
 
 export type ICard = {
