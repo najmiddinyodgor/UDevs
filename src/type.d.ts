@@ -16,3 +16,14 @@ export type ICard = {
     icon: any,
     cssClass?: string
 }
+
+export type filterButton = {
+    id: number,
+    label: string,
+}
+
+export type filterItem = {
+    id: number,
+    label: string,
+    icon: any
+}

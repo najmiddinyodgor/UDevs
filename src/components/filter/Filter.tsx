@@ -3,67 +3,80 @@ import React, {FC, useState} from "react"
 import swift from "../../images/technologies/swift.svg";
 import kotlin from "../../images/technologies/kotlin.svg";
 import flutter from "../../images/technologies/flutter.svg";
-import {ICard} from "../../type";
+import figma from "../../images/technologies/figma.svg";
+import illustrator from "../../images/technologies/illustrator.svg";
+import sketch from "../../images/technologies/sketch.svg";
+import {filterButton, filterItem} from "../../type";
 import FilterElem from "./FilterElem";
 import FilterButton from "./FilterButton";
 
-interface IFilterElem {
-    id: number,
-    label: string,
-    activeClass: string,
-    items: ICard[]
+enum technologies {
+    FRONTEND = 1,
+    BACKEND = 2,
+    DEVOPS = 3,
+    DESIGN = 4
 }
 
-const filterElems: IFilterElem[] = [
+const classes = new Map();
+classes.set(technologies.FRONTEND, "card--frontend");
+classes.set(technologies.BACKEND, "card--backend")
+classes.set(technologies.DEVOPS, "card--devops")
+classes.set(technologies.DESIGN, "card--design")
+
+const filterButtons: filterButton[] = [
     {
-        id: 1,
+        id: technologies.FRONTEND,
         label: "Frontend",
-        activeClass: "card--frontend",
-        items: [
-            {
-                label: "Kotlin",
-                icon: kotlin
-            },
-            {
-                label: "Flutter",
-                icon: flutter
-            }
-        ]
     },
     {
-        id: 2,
+        id: technologies.BACKEND,
         label: "Backend",
-        activeClass: "card--backend",
-        items: [
-            {
-                label: "Swift",
-                icon: swift
-            },
-            {
-                label: "Flutter",
-                icon: flutter
-            }
-        ]
     },
     {
-        id: 3,
+        id: technologies.DEVOPS,
         label: "DevOps",
-        activeClass: "card--devops",
-        items: [
-            {
-                label: "Kotlin",
-                icon: kotlin
-            },
-            {
-                label: "Flutter",
-                icon: flutter
-            }
-        ]
+    },
+    {
+        id: technologies.DESIGN,
+        label: "Design"
     }
 ]
 
+const filterItems: filterItem[] = [
+    {
+        id: technologies.FRONTEND,
+        label: "Kotlin",
+        icon: kotlin
+    },
+    {
+        id: technologies.BACKEND,
+        label: "Swift",
+        icon: swift
+    },
+    {
+        id: technologies.DESIGN,
+        label: "Figma",
+        icon: figma
+    },
+    {
+        id: technologies.FRONTEND,
+        label: "Flutter",
+        icon: flutter
+    },
+    {
+        id: technologies.DESIGN,
+        label: "Sketch",
+        icon: sketch
+    },
+    {
+        id: technologies.DESIGN,
+        label: "Illustrator",
+        icon: illustrator
+    },
+]
+
 const Filter: FC = () => {
-    const [activeElem, setActiveElem] = useState<number>(1)
+    const [activeElem, setActiveElem] = useState<number>(0)
 
     function changeActiveElem(id: number) {
         if (id === activeElem) {
@@ -77,7 +90,7 @@ const Filter: FC = () => {
         <div>
             <div>
                 {
-                    filterElems.map(({id, label}: IFilterElem) => {
+                    filterButtons.map(({id, label}: filterButton) => {
                         return <FilterButton key={id} label={label}
                                              isActive={activeElem === id}
                                              clickHandler={() => changeActiveElem(id)}/>
@@ -86,12 +99,15 @@ const Filter: FC = () => {
             </div>
             <div className={"tools"}>
                 {
-                    filterElems.map(({label, activeClass, items, id}: IFilterElem) => {
-                        return items.map((item: ICard) => <FilterElem
-                            key={item.label} {...item}
-                            cssClass={activeClass}
-                            isActive={activeElem === 0 || activeElem === id}/>)
-                    })
+                    filterItems.map(({label, icon, id}: filterItem) => (
+                            <FilterElem
+                                key={label}
+                                icon={icon}
+                                label={label}
+                                cssClass={classes.get(id)}
+                                isActive={activeElem === 0 || activeElem === id}/>
+                        )
+                    )
                 }
             </div>
         </div>

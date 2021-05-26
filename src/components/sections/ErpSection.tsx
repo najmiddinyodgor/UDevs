@@ -12,7 +12,6 @@ import ecommerce from "../../images/ecommerce.svg";
 import pos from "../../images/pos.svg";
 import mail from "../../images/mail.svg";
 import warehouse from "../../images/warehouse.svg";
-import TransCard from "../card/TransCard";
 
 const cards: ICard[] = [
     {

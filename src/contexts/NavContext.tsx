@@ -6,7 +6,9 @@ import TeamSection from "../components/sections/TeamSection";
 import MobileSection from "../components/sections/MobileSection";
 import ToolsSection from "../components/sections/ToolsSection";
 import ErpSection from "../components/sections/ErpSection";
-import DumpSection from "../components/sections/components/DumpSection";
+import DesignSection from "../components/sections/DesignSection";
+import OptimizeSection from "../components/sections/OptimizeSection";
+import ConsaltingSection from "../components/sections/ConsaltingSection";
 
 const sections: ISection[] = [
     {
@@ -41,6 +43,27 @@ const sections: ISection[] = [
                         path: "erp-services"
                     },
                     component: createSection(ErpSection, "erp-services")
+                },
+                {
+                    link: {
+                        title: "UX/ UI design",
+                        path: "design-services"
+                    },
+                    component: createSection(DesignSection, "design-services")
+                },
+                {
+                    link: {
+                        title: "Оптимизация инфраструктуры",
+                        path: "optimize-services"
+                    },
+                    component: createSection(OptimizeSection, "optimize-services")
+                },
+                {
+                    link: {
+                        title: "IT Консалтинг",
+                        path: "consalting-services"
+                    },
+                    component: createSection(ConsaltingSection, "consalting-services")
                 }
             ]
         },

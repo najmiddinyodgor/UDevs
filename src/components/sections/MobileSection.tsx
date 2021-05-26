@@ -6,8 +6,8 @@ import CardList from "../lists/CardList";
 import MiniCard from "../card/MiniCard";
 import SectionImage from "./components/SectionImage";
 
-import android from "../../images/technologies/android.svg";
-import apple from "../../images/technologies/apple.svg";
+import android from "../../images/android.svg";
+import apple from "../../images/apple.svg";
 import cross from "./../../images/cross.svg";
 import swift from "../../images/technologies/swift.svg";
 import kotlin from "../../images/technologies/kotlin.svg";
